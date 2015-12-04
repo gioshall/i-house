@@ -62,7 +62,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background-color: #777;
+  background-color: #979A9E;
   font-family: helvetica, "LiHei Pro", "Heiti TC", "Microsoft JhengHei";
 }
 
@@ -90,7 +90,7 @@ body {
   position: fixed;
   top: 0;
   left: -240px;
-  background-color: #777;
+  background-color: #979A9E;
   overflow-x: hidden;
   overflow-y: auto;
   overflow-y: scroll;
@@ -101,17 +101,17 @@ body {
 }
 .menu a {
   text-decoration: none;
-  color: #fff;
+  color: #212121;
 }
 .menu h3 {
   display: inline-block;
   position: relative;
-  color: #fff;
+  color: #212121;
   font-size: 18px;
   vertical-align: top;
 }
 .menu h3:active {
-  background-color: #666;
+  background-color: #909090;
 }
 .menu h3:after {
   background-image: url("../img/icon-sub.svg");
@@ -139,7 +139,7 @@ body {
 .menu .cate-title {
   line-height: 50px;
   text-align: center;
-  border-bottom: 1px #666 solid;
+  border-bottom: 1px #888 solid;
 }
 .menu .back h3:after,
 .menu .cate-title h3:after {
@@ -164,7 +164,7 @@ body {
   width: 33.33%;
 }
 .menu .menu-list li {
-  border-bottom: 1px #666 solid;
+  border-bottom: 1px #888 solid;
 }
 .menu .menu-list li a {
   width: 100%;
@@ -175,8 +175,8 @@ body {
   text-indent: 70px;
 }
 .menu .menu-list li.inner-menu {
-  background-color: #666;
-  border-bottom: 0px #666 solid;
+  background-color: #909090;
+  border-bottom: 0px #888 solid;
 }
 
 #header {
@@ -1184,7 +1184,7 @@ body {
   right: 0;
   width: 40px;
   height: 40px;
-  background-color: #9f1a1a;
+  background-color: #E78942;
   background-size: 40px 160px;
   background-image: url("../img/icon-footer.svg");
   background-repeat: no-repeat;
