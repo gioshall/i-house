@@ -1,0 +1,97 @@
+<div class="menu-set">
+<!-- 1st menu -->
+<ul class="menu-list cate-01">
+	<div class="cate-title">
+		<h3>全站分類</h3>
+	</div>
+	<li class="cate-list"><h3>舒眠寢具</h3></li>
+	<li class="cate-list"><h3>品味傢俱</h3></li>
+	<li class="cate-list"><h3>收納層架</h3></li>
+	<li class="cate-list"><h3>生活家電</h3></li>
+	<li class="cate-list"><h3>居家紡品</h3></li>
+	<li class="cate-list"><h3>餐茶玻璃</h3></li>
+	<li class="cate-list"><h3>廚用鍋具</h3></li>
+	<li class="cate-list"><h3>衛浴美體</h3></li>
+	<li class="cate-list"><h3>日用清潔</h3></li>
+	<li class="cate-list"><h3>美食飲品</h3></li>
+	<li class="cate-list"><h3>燈飾擺飾</h3></li>
+</ul>
+
+<!-- 2nd menu -->
+<ul class="menu-list cate-02">
+	<div class="back">
+		<h3>回上一層商品分類</h3>
+	</div>
+	<li class="cate-title"><h3>舒眠寢具</h3></li>
+
+	<li class="inner-menu"><h3>品味傢俱</h3></li>
+	<li class="inner-menu"><h3>收納層架</h3></li>
+	<li class="inner-menu"><h3>生活家電</h3></li>
+	<li class="inner-menu"><h3>居家紡品</h3></li>
+	<li class="inner-menu"><h3>餐茶玻璃</h3></li>
+	<li class="inner-menu"><h3>廚用鍋具</h3></li>
+	<li class="inner-menu"><h3>衛浴美體</h3></li>
+	<li class="inner-menu"><h3>日用清潔</h3></li>
+	<li class="inner-menu"><h3>美食飲品</h3></li>
+	<li class="inner-menu"><h3>燈飾擺飾</h3></li>
+
+	<li class="cate-title"><h3>品味傢俱</h3></li>
+	<li class="cate-title"><h3>收納層架</h3></li>
+	<li class="cate-title"><h3>生活家電</h3></li>
+	<li class="cate-title"><h3>居家紡品</h3></li>
+	<li class="cate-title"><h3>餐茶玻璃</h3></li>
+	<li class="cate-title"><h3>廚用鍋具</h3></li>
+	<li class="cate-title"><h3>衛浴美體</h3></li>
+	<li class="cate-title"><h3>日用清潔</h3></li>
+	<li class="cate-title"><h3>美食飲品</h3></li>
+	<li class="cate-title"><h3>燈飾擺飾</h3></li>
+</ul>
+
+<!-- 3rd menu -->
+<ul class="menu-list cate-03">
+	<div class="back">
+		<h3>回上一層商品分類</h3>
+	</div>
+	<li class="cate-title"><h3>品味傢俱</h3></li>
+
+	<li class="inner-menu"><a href="list.html"><h3>床包被套組</h3></a></li>
+	<li class="inner-menu"><a href="list.html"><h3>枕套床包組</h3></a></li>
+	<li class="inner-menu"><a href="list.html"><h3>涼被枕套組</h3></a></li>
+	<li class="inner-menu"><a href="list.html"><h3>被套</h3></a></li>
+	<li class="inner-menu"><a href="list.html"><h3>床包</h3></a></li>
+
+	<li class="cate-title"><h3>收納層架</h3></li>
+	<li class="cate-title"><h3>生活家電</h3></li>
+	<li class="cate-title"><h3>居家紡品</h3></li>
+	<li class="cate-title"><h3>餐茶玻璃</h3></li>
+	<li class="cate-title"><h3>廚用鍋具</h3></li>
+	<li class="cate-title"><h3>衛浴美體</h3></li>
+	<li class="cate-title"><h3>日用清潔</h3></li>
+	<li class="cate-title"><h3>美食飲品</h3></li>
+	<li class="cate-title"><h3>燈飾擺飾</h3></li>
+
+</ul>
+</div>
+
+<script>	
+	function menuMove(e) {
+		var cate = '.menu .menu-list.cate-0';
+		$('.menu-set').css('height', $(cate + '1').height() + 'px')
+		$(cate + e + ' .cate-list, ' + cate + e + ' .inner-menu').click(function() {
+			$('.menu-set').css({
+				'transform': 'translateX(' + -33.33 * e + '%)',
+				'height': $(cate + (e + 1)).height() + 'px'
+			});
+		});
+		$(cate + (e + 1) + ' .back').click(function() {
+			$('.menu-set').css({
+				'transform': 'translateX(' + -33.33 * (e - 1) + '%)',
+				'height': $(cate + e).height() + 'px'
+			});
+		});
+	}
+
+	for (i = 1; i <= 2; i++) {
+		menuMove(i);
+	}
+</script>

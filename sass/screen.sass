@@ -1,0 +1,943 @@
+@import compass/reset
+@import compass/css3
+@import mixin
+
+html
+	overflow-x: hidden
+
+body
+	margin: 0
+	padding: 0
+	overflow-x: hidden
+	background-color: $second-color
+	font-family: helvetica, "LiHei Pro", "Heiti TC", "Microsoft JhengHei"
+
+#container,
+.menu
+	+transition(0.2s)
+
+#container
+	position: relative
+	width: 100%
+	z-index: 1
+	background-color: #fff
+	&.show-menu
+		margin-left: 240px	
+.menu
+	width: 240px
+	height: 100%
+	position: fixed
+	top: 0
+	left: -240px
+	background-color: $second-color
+	overflow-x: hidden
+	overflow-y: auto
+	overflow-y: scroll
+	-webkit-overflow-scrolling: touch
+	&.show-menu
+		left: 0px
+	a
+		text-decoration: none
+		color: #222
+	h3
+		display: inline-block
+		position: relative
+		color: #222
+		font-size: 18px
+		vertical-align: top
+		&:active
+			background-color: rgba(140,90,5,0.3)
+		&:after
+			+bg(icon-sub,svg)
+			background-size: 25px 375px
+			background-position: 0 -250px
+			width: 25px
+			height: 25px
+			content: ''
+			position: absolute
+			top: 7px
+			right: 15px
+	.menu-set
+		width: 300%
+		position: relative
+		overflow: hidden
+		font-size: 0
+		+transition(0.3s)
+	.back,
+	.cate-title
+		line-height: 50px
+		text-align: center
+		border-bottom: 1px #a07d3d solid
+		h3
+			&:after
+				background-position: 0 -275px
+				left: -25px
+				top: 13px
+	.cate-title
+		font-weight: bold
+		text-align: left
+		h3
+			text-indent: 70px
+			&:after
+				display: none
+	.menu-list
+		line-height: 45px
+		display: inline-block
+		vertical-align: top
+		width: 33.33%		
+		li
+			border-bottom: 1px #a99063 solid
+			a
+				width: 100%				
+				display: block
+			h3
+				width: 100%
+				text-indent: 70px
+			&.inner-menu
+				background-color: #a99063
+				border-bottom: 0px #a99063 solid
+
+#header
+	height: 60px
+	width: 100%
+	background-color: $primary-color
+	position: fixed
+	overflow: hidden
+	z-index: 10
+	.logo
+		width: 78px
+		height: 60px
+		position: relative
+		margin: auto
+		a
+			display: block
+			width: 78px
+			height: 60px
+			background-size: cover
+			background-position: center
+			background-repeat: no-repeat
+			+bg(logo-hola,png)
+	ul	
+		position: absolute
+		top: 15px
+		height: 40px
+		&.menu-left
+			left: 0px
+		&.menu-right
+			right: 0px	
+		li
+			width: 35px
+			height: 35px
+			margin: 2px 0px
+			display: inline-block
+			position: relative
+			background-size: 70px 175px
+			vertical-align: middle
+			+bg(icon-header,svg)
+			a
+				display: block
+				width: 100%
+				height: 100%
+			&.header-menu
+				background-position: 0 0
+				&.show-menu
+					background-position: -35px 0
+			&.header-search
+				background-position: 0 -35px
+				&.show-search
+					background-position: -35px -35px
+			&.header-login
+				background-position: 0 -70px
+			&.header-order
+				background-position: 0 -105px
+				&.acted
+					background-position: -35px -105px
+			&.header-cart
+				background-position: 0 -140px
+				&.acted
+					background-position: -35px -140px
+			&.cart-items
+				width: 20px
+				height: 20px
+				background-color: $color-red
+				font-size: 11px
+				line-height: 20px
+				text-align: center
+				font-weight: bold
+				color: #fff
+				background-image: none
+				margin: 0 2px 0 -12px
+				+border-radius(50%)
+
+	&.show-search
+		height: 110px
+		+transition(0.2s ease)
+		.search
+			height: 50px
+			text-align: center
+
+			input
+				position: relative
+				width: 90%
+				margin: 6px auto
+				background-color: #fff
+				border: 0
+				height: 25px
+				padding: 5px
+				font-size: 16px
+				color: $color-text
+				+border-radius(2px)
+				&:focus
+					outline: none
+
+.sub-nav
+	padding-top: 60px
+	height: 50px
+	border-bottom: 1px #d7d7d7 solid
+	font-size: 0
+	&.show-search
+		padding-top: 100px
+		+transition(0.2s ease)
+	li
+		display: inline-block
+		width: 25%
+		text-align: center
+		height: 50px
+		position: relative
+		a
+			text-decoration: none
+			color: #000
+			display: block
+			height: 50px
+			width: 100%
+		&.acted
+			background-color: #ece7de
+		h2
+			font-size: 13px
+			line-height: 25px
+			top: 12px
+			padding-left: 17px
+			position: relative	
+			&:before
+				content: ''
+				width: 25px
+				height: 25px
+				position: absolute
+				top: 0
+				margin-left: -25px
+				background-size: 25px 375px
+				+bg(icon-sub,svg)
+			&.nav-news
+				&:before
+					background-position: 2px 0
+			&.nav-coupon
+				&:before
+					background-position: 2px -25px
+			&.nav-store
+				&:before
+					background-position: 2px -50px
+			&.nav-dm
+				&:before
+					background-position: 2px -75px
+
+#content
+	.highlight
+		position: relative
+		margin-bottom: 30px
+		a,
+		img
+			width: 100%
+		ul
+			width: 100%
+			font-size: 0
+			position: relative
+			li
+				display: inline-block			
+				&.highlight-main
+					width: 100%
+				&.highlight-sub01,
+				&.highlight-sub02
+					width: 48%
+				&.highlight-sub01
+					margin: 10px 0 0 0
+				&.highlight-sub02
+					margin: 10px 0 0 4%
+	.highlight-main
+		width: 100%
+		position: relative
+		overflow: hidden
+		img
+			width: 100%
+		.swiper-wrapper
+			position: relative
+			width: 100%
+			height: 100%
+			z-index: 1
+			+display-flex(flex)
+			+transition-property(transform)
+			.swiper-slide
+				position: relative
+				width: 100%
+				height: 100%
+				+flex-shrink(0)
+		.swiper-pagination
+			position: absolute
+			width: 100%
+			text-align: center
+			top: 90%
+			z-index: 5
+			+transition(0.3s)
+			.swiper-pagination-bullet
+				width: 10px
+				height: 10px
+				margin: 5px
+				display: inline-block
+				background: rgba(255,255,255,0.8)
+				+border-radius(50%)
+				&.swiper-pagination-bullet-active
+					background: #fcc80d
+	.daily-select
+		width: 100%
+		position: relative
+		a,
+		img
+			width: 100%
+			display: block
+			text-decoration: none
+		.daily-info
+			height: 40px
+			line-height: 40px
+			background-color: #ece7de
+			position: relative
+			span
+				color: $color-red
+				font-size: 10px
+				line-height: 15px
+				border: 1px $color-red solid
+				display: inline-block
+				margin: 0 2px 0 5px
+				padding: 2px 4px
+				+border-radius(3px)
+			h2
+				display: inline-block
+				font-size: 12px
+				color: #000
+			.price
+				position: absolute
+				top: 0
+				right: 0
+				background-color: $color-red
+				color: #fff
+				font-size: 18px
+				font-weight: bold
+				padding: 0 8px
+	.promote
+		width: 95%
+		position: relative
+		margin: 0 auto 20px
+		text-align: center
+		h2
+			font-size: 15px
+			line-height: 40px
+			margin-top: 10px
+			font-weight: bold
+		ul
+			position: relative
+			font-size: 0
+			li
+				display: inline-block
+				width: 48%
+				position: relative
+				a,
+				img
+					width: 100%
+				&:nth-of-type(odd)
+					margin: 0 0 10px 0
+				&:nth-of-type(even)
+					margin: 0 0 10px 4%
+		.hot-list
+			margin-top: 20px
+			li
+				width: 50%
+				border: 1px #fff solid
+				box-sizing: border-box
+				&:nth-of-type(odd),
+				&:nth-of-type(even)
+					margin: 0
+				&:after
+					position: absolute
+					width: 30px
+					height: 30px
+					top: 7px
+					right: 5px
+					content: ''
+					background-size: 30px 450px
+					background-position: 0 -300px
+					opacity: .3
+					+bg(icon-sub,svg)
+				a
+					display: block
+					text-decoration: none
+					background-color: #efefef
+					font-size: 15px	
+					line-height: 45px
+					color: $color-text
+
+	.breadcrumb
+		background-color: #ece7de
+		border-bottom: 1px #e2dfdb solid
+		line-height: 40px
+		font-size: 12px
+		color: $primary-color
+		padding: 0 10px
+		a
+			color: $primary-color
+	.filter
+		height: 52px
+		position: relative
+		.list-type,
+		.store-loc,
+		.store-coupon
+			position: absolute
+			left: 10px
+			top: 10px
+			font-size: 0
+			li
+				display: inline-block
+				position: relative
+				width: 30px
+				height: 30px
+				border: 1px #d7d7d7 solid
+				background-color: #fff
+				+bg(icon-sub,svg)
+				background-size: 30px 450px
+				&.selected
+					&:after
+						position: absolute
+						width: 100%
+						height: 100%
+						top: 0
+						left: 0
+						content: ''
+						background-color: #ccc
+						opacity: .6
+				&.list-pix
+					background-position: 0 -390px
+				&.list-pt
+					background-position: 0 -420px
+				&:nth-of-type(2)
+					margin-left: -1px
+		.store-loc,
+		.store-coupon
+			width: 95%
+			position: relative
+			margin: auto
+			left: 0
+			text-align: center
+			li
+				width: 24%
+				font-size: 12px
+				line-height: 30px
+				background-image: none
+				margin-left: -1px
+				a
+					text-decoration: none
+					color: #000
+		.store-coupon
+			li
+				//width: 48%
+		select
+			position: absolute
+			right: 10px
+			top: 10px
+			height: 30px
+			line-height: 30px	
+			font-size: 15px
+	.list-cont
+		width: 95%
+		position: relative
+		margin: 0 auto 20px
+		font-size: 0
+		.list-box		
+			a
+				text-decoration: none
+				.price
+					font-size: 15px
+					line-height: 30px
+					font-weight: bold
+					color: $color-red
+					del
+						color: #363636
+						margin-right: 3px
+				h2
+					font-weight: bold
+					color: $primary-color
+			.item-info
+				position: relative
+			.buy-btn
+				display: block
+				font-size: 15px
+				color: #fff
+				line-height: 35px
+				text-align: center
+				width: 80px
+				text-decoration: none
+				position: absolute
+				top: 0
+				right: 0
+				background-color: $color-red
+				+border-radius(3px)
+
+		&.pix
+			.list-box
+				width: 48%
+				display: inline-block
+				vertical-align: top
+				a,
+				img
+					width: 100%
+					display: block	
+				&:nth-of-type(odd)
+					margin: 0 0 10px 0
+				&:nth-of-type(even)
+					margin: 0 0 10px 4%
+				h2
+					font-size: 13px
+					line-height: 20px
+					min-height: 80px
+					height: 80px
+					overflow: hidden
+					text-overflow: ellipsis
+					display: -webkit-box
+					-webkit-line-clamp: 4
+					-webkit-box-orient: vertical
+		&.pt,
+		&.store,
+		&.dm,
+		&.cart
+			.list-box
+				width: 100%
+				display: block
+				font-size: 0
+				margin-bottom: 15px
+				img
+					width: 45%
+					display: inline-block
+				.item-info
+					width: 53%
+					margin-left: 2%
+					display: inline-block
+					vertical-align: top
+				.price
+					position: absolute
+					bottom: 0
+				.date
+					font-size: 10px
+					color: $color-text
+					margin-top: 5px
+				h2
+					font-size: 16px
+					line-height: 23px
+					min-height: 92px
+					height: 92px
+					overflow: hidden
+					text-overflow: ellipsis
+					display: -webkit-box
+					-webkit-line-clamp: 4
+					-webkit-box-orient: vertical
+		&.store
+			.list-box
+				h2
+					padding-top: 15px
+					height: 23px
+					min-height: 23px
+				.address
+					font-size: 10px
+					color: $color-text
+					margin-top: 5px
+		&.dm
+			.list-box
+				margin-top: 10px
+				img
+					width: 35%
+				.item-info
+					width: 60%
+				h2
+					padding-top: 15px
+					height: 23px
+					min-height: 23px
+				.date
+					margin-bottom: 10px
+				.dm-info
+					font-size: 13px
+					line-height: 21px
+					color: #000
+		&.cart
+			width: 100%
+			.list-box
+				img
+					width: 30%
+				.item-info
+					width: 65%
+				h2
+					font-size: 13px
+					height: 20px
+					line-height: 20px
+					min-height: 20px
+				.amount
+					font-size: 14px
+					line-height: 22px
+					margin-top: 5px
+					color: $color-text
+			a
+				&.del
+					position: absolute
+					bottom: 2px
+					right: 2px
+					font-size: 12px
+					line-height: 22px
+					padding: 2px 6px
+					background-color: #999
+					text-decoration: none
+					color: #fff
+					+border-radius(2px)
+		&.news,
+		&.coupon
+			.list-box
+				width: 90%
+				margin: 10px auto 20px
+				display: block
+				h2
+					font-size: 18px
+					line-height: 24px
+				
+		&.coupon
+			.list-box
+				h2
+					padding-right: 90px
+		.load-more
+			color: $color-red
+			width: 90%
+			margin: auto
+			font-size: 15px
+			line-height: 35px
+			border: 1px $color-red solid
+			text-align: center
+			+border-radius(3px)
+
+	.photo-slide
+		width: 100%
+		position: relative
+		img
+			width: 100%
+
+	.product-info
+		width: 80%
+		position: relative
+		margin: auto
+		h1
+			font-size: 18px
+			line-height: 25px
+			color: $primary-color
+			font-weight: bold
+			padding: 10px 0
+		&.rule
+			h1
+				color: $color-red
+			.content
+				font-size: 12px
+				line-height: 19px
+				padding-bottom: 20px
+				color: $color-text
+			.ruleItem
+				font-size: 16px
+				line-height: 25px
+				padding: 15px 0 5px
+				color: $color-red
+			strong
+				display: block
+				font-size: 15px
+				line-height: 30px
+				margin-top: 10px
+				color: #000
+		.description
+			color: $color-text
+			font-size: 14px
+			line-height: 22px
+			.store-info
+				li
+					+bg(icon-sub,svg)
+					background-size: 30px 450px
+					line-height: 30px
+					padding-left: 30px
+					&.address
+						background-position: 0 -120px
+					&.phone
+						background-position: 0 -150px
+					&.hours
+						background-position: 0 -180px
+		&.cart
+			h1
+				font-size: 24px
+				line-height: 50px
+				font-weight: normal
+				color: #000
+		&.warning
+			h1
+				color: $color-red
+				font-size: 28px
+				line-height: 45px
+			.description
+				color: $color-red
+				a
+					color: $color-red
+				b
+					font-weight: bold
+
+		hr
+			height: 1px
+			border: 0
+			border-top: 1px #d3d3d3 solid
+			display: block
+		.fee-info,
+		.countinue
+			font-size: 14px
+			line-height: 22px
+			margin: 10px 0
+			padding: 3px 5px
+			background-color: #ece7de
+			display: inline-block
+			+border-radius(3px)
+			a
+				color: $color-red
+				text-decoration: none
+		.countinue
+			float: right
+		.price,
+		.contact
+			h2
+				text-align: right
+				font-size: 25px
+				line-height: 40px
+				font-weight: bold
+				span
+					font-size: 12px
+					line-height: 18px
+					display: inline-block
+					margin: 0 5px
+					padding: 2px 6px
+					vertical-align: middle
+					+border-radius(3px)
+			.contact-input
+				text-align: left
+				display: inline-block	
+				font-size: 25px
+				line-height: 40px
+				width: 65%
+				vertical-align: top
+				.notice
+					font-size: 10px
+					line-height: 13px
+					display: block
+					clear: both
+					color: $color-text
+				input
+					height: 20px
+					width: 100%
+					font-size: 15px
+				label
+					font-size: 13px
+					line-height: 20px
+					font-weight: normal
+					display: inline
+					input
+						width: 20px
+						vertical-align: middle
+				&.card
+					font-size: 12px
+					display: block
+					width: 100%
+			.fee-range
+				float: left
+				font-size: 19px
+				font-weight: bold
+				line-height: 45px
+				color: $primary-color
+			.price-title,
+			.contact-label
+				float: left
+				font-size: 14px
+				font-weight: bold
+				line-height: 45px
+				color: $color-text
+			.contact-label
+				float: none
+				display: inline-block
+				width: 30%
+				text-align: right
+				&.card
+					line-height: 22px	
+					display: block
+					width: 100%
+					text-align: left
+
+			.buy-btn
+				a
+					display: block
+					font-size: 18px
+					color: #fff
+					margin: 10px auto
+					line-height: 50px
+					text-align: center
+					text-decoration: none
+					+border-radius(3px)
+			&.web
+				h2
+					color: $color-red
+					span
+						color: $color-red
+						border: 1px $color-red solid
+				.buy-btn
+					a
+						background-color: $color-red
+					&.prv
+						a
+							background-color: #999
+			&.store
+				h2
+					color: $color-blue
+					span
+						color: $color-blue
+						border: 1px $color-blue solid
+				.buy-btn
+					a
+						background-color: $color-blue
+		.detail
+			margin-bottom: 20px
+			h3
+				font-size: 15px
+				line-height: 30px
+				font-weight: bold
+				margin-top: 15px
+				clear: both
+			select
+				padding: 5px
+				font-size: 15px
+				margin: 5px 5px 5px 0
+			table
+				margin: 15px auto
+				font-size: 15px
+				line-height: 50px
+				color: $color-text
+				tr
+					border-bottom: 1px #ccc solid
+			p,
+			li
+				color: $color-text
+				font-size: 14px
+				line-height: 22px
+			li
+				width: 48%
+				display: inline-block
+			.notice
+				font-size: 10px
+				line-height: 14px
+				color: #777
+				a
+					color: $color-text
+			.invoice
+				font-size: 13px
+				line-height: 25px
+				input[type="text"]
+					width: 90%
+					height: 20px
+					font-size: 15px
+					margin: 5px
+
+			.list-cont
+				width: 100%
+				h2
+					font-size: 15px
+					line-height: 21px
+					min-height: 84px
+					height: 84px
+			.recommend
+				width: 100%
+				position: relative
+				img
+					width: 100%
+				.point
+					width: 85px
+					height: 72px
+					padding-top: 13px
+					position: absolute
+					top: -40px
+					right: -15px
+					text-align: center
+					color: #fff
+					font-size: 11px
+					line-height: 18px
+					background-color: $color-red
+					+border-radius(50%)
+					b
+						font-size: 25px
+						font-weight: bold
+						padding: 0 3px
+		.dm-cover
+			position: relative
+			width: 100%
+			margin: 15px auto
+			display: block
+			img
+				width: 100%
+
+.gotop
+	opacity: 0
+	position: fixed
+	bottom: 0
+	right: 0
+	width: 40px
+	height: 40px
+	background-color: #eb6f63
+	background-size: 40px 160px
+	+bg(icon-footer,svg)
+	+transition(0.2s ease-in)
+	+transform(translateY(40px))
+	z-index: 10
+	&.show
+		opacity: 1
+		+transform(translateY(0px))
+
+#footer
+	background-color: $base-color
+	color: #fff
+	.link
+		text-align: center
+		margin: 5px 0
+		li
+			display: inline-block
+			width: 50px
+			height: 50px
+			a
+				width: 50px
+				height: 50px
+				display: block
+				background-size: 50px 200px
+				+bg(icon-footer,svg)
+			&.desktop
+				a
+					background-position: 0 -50px
+			&.mobile
+				a
+					background-position: 0 -100px
+			&.facebook
+				a
+					background-position: 0 -150px
+	p
+		padding: 0 10% 10px
+		font-size: 11px
+		line-height: 15px
+		span
+			font-size: 9px
+			display: block
+
