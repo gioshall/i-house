@@ -530,6 +530,30 @@ body {
 #content .promote ul li img {
   width: 100%;
 }
+#content .promote ul li a {
+  text-decoration: none;
+}
+#content .promote ul li a .info {
+  display: block;
+  text-align: left;
+  height: 85px;
+  overflow: hidden;
+}
+#content .promote ul li a h3 {
+  font-size: 13px;
+  line-height: 20px;
+  color: #EC7510;
+}
+#content .promote ul li a .price {
+  font-size: 15px;
+  line-height: 23px;
+  font-weight: bold;
+  color: #900;
+}
+#content .promote ul li a .price del {
+  color: #363636;
+  margin-right: 3px;
+}
 #content .promote ul li:nth-of-type(odd) {
   margin: 0 0 10px 0;
 }
